@@ -6,7 +6,6 @@ const ShoppingList = () => {
   const [shoppingList, setShoppingList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 在组件加载时获取数据
   useEffect(() => {
     fetchMealPlanData();
   }, []);
