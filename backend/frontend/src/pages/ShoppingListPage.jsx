@@ -1,9 +1,11 @@
 // import React from "react";
 
+import ShoppingList from "../components/ShoppingList";
+
 function ShoppingListPage() {
   return (
     <div>
-      <h1>shoppingListpage</h1>
+      <ShoppingList />
     </div>
   );
 }

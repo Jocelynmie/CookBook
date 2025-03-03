@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8080", // 你的后端服务器地址
+        target: "http://localhost:8080",
         changeOrigin: true,
       },
     },

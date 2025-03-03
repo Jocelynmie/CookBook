@@ -1,0 +1,112 @@
+/* 基本容器样式 */
+.shopping-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* 页面标题 */
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 内容区域布局 */
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* 食谱区域 */
+.recipe-section {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 购物清单区域 */
+.shopping-section {
+  flex: 1.5;
+  min-width: 0;
+}
+
+/* 卡片样式 */
+.section-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 100%;
+}
+
+/* 区域标题 */
+.section-title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* 分隔线 */
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+/* 食谱列表 */
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recipe-item:last-child {
+  border-bottom: none;
+}
+
+.recipe-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.recipe-description {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* 购物清单列表 */
+.shopping-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopping-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.shopping-item:last-child {
+  border-bottom: none;
+}
+
+/* 总计数量 */
+.total-count {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+}

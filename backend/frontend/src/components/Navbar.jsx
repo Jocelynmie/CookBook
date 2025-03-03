@@ -21,7 +21,7 @@ function Navbar() {
             location.pathname === "/shopping-list-page" ? "active" : ""
           }
         >
-          <Link to="/shopping-list">Shopping List Page</Link>
+          <Link to="/shopping-list-page">Shopping List Page</Link>
         </li>
       </ul>
     </nav>
