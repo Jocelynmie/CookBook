@@ -6,7 +6,6 @@ function RecipeList({ onRecipeDeleted }) {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 获取食谱数据
   const fetchRecipes = async () => {
     try {
       setLoading(true);
@@ -23,30 +22,17 @@ function RecipeList({ onRecipeDeleted }) {
     }
   };
 
-  // 初始加载和刷新数据
+//for initialize
   useEffect(() => {
     fetchRecipes();
   }, []);
 
-  // 处理食谱删除
+ 
   const handleRecipeDeleted = (recipeId) => {
     setRecipes((currentRecipes) =>
-      currentRecipes.filter((recipe) => {
-        const recipeIdStr =
-          typeof recipe._id === "object"
-            ? recipe._id.$oid || recipe._id.toString()
-            : recipe._id;
-
-        const deletedIdStr =
-          typeof recipeId === "object"
-            ? recipeId.$oid || recipeId.toString()
-            : recipeId;
-
-        return recipeIdStr !== deletedIdStr;
-      })
+      currentRecipes.filter((recipe) => recipe._id !== recipeId)
     );
 
-    // 通知父组件(如果有的话)
     if (onRecipeDeleted) {
       onRecipeDeleted(recipeId);
     }

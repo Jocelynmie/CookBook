@@ -8,6 +8,7 @@
   width: 100%;
   margin: 0 auto;
   left: 50%;
+  margin-top: 30px;
 }
 
 .add-recipe-form-header {
@@ -165,10 +166,10 @@
 }
 
 .submit-btn {
-  background-color: #4caf50;
+  background-color: #b0d1e8;
   color: white;
 }
 
 .submit-btn:hover {
-  background-color: #388e3c;
+  background-color: #86a0b3;
 }

@@ -107,11 +107,6 @@
   margin-right: 6px;
 }
 
-/* .recipe-meta span:last-child::before {
-  content: "📅";
-  margin-right: 6px;
-} */
-
 .recipe-ingredients {
   padding: 0 15px 15px;
 }
@@ -142,7 +137,7 @@
 
 .recipe-ingredients li::before {
   content: "•";
-  color: #ff6b6b;
+  color: #dba0a9;
   font-weight: bold;
   margin-right: 8px;
   font-size: 1.1rem;
@@ -169,21 +164,21 @@
 }
 
 .delete-recipe-btn {
-  background-color: #ff6b6b;
+  background-color: #d48c9f;
   color: white;
 }
 
 .add-to-shopping-list-btn {
-  background-color: #4caf50;
+  background-color: #b0d1e8;
   color: white;
 }
 
 .add-to-meal-plan-btn:hover {
-  background-color: #ff5252;
+  background-color: #d48c9f;
 }
 
 .add-to-shopping-list-btn:hover {
-  background-color: #43a047;
+  background-color: #86a0b3;
 }
 
 @media (max-width: 1200px) {

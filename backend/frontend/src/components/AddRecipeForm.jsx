@@ -235,7 +235,6 @@ function AddRecipeForm({ onRecipeAdded }) {
   };
 
   const removeIngredient = (index) => {
-    // 至少保留一个配料输入框
     if (recipeData.ingredients.length <= 1) {
       return;
     }

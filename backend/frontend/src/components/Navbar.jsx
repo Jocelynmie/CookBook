@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-brand">CookBook</div>
+      <div className="navbar-brand">CookBook 🍜</div>
       <ul className="navbar-nav">
         <li className={location.pathname === "/" ? "active" : ""}>
           <Link to="/">HomePage</Link>
