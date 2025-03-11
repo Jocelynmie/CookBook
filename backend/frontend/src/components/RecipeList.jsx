@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 import PropTypes from "prop-types";
 
-function RecipeList({ onRecipeDeleted }) {
-  const [recipes, setRecipes] = useState([]);
+function RecipeList({ recipes: propRecipes, onRecipeDeleted }) {
+  const [localRecipes, setLocalRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // 获取菜谱数据
   const fetchRecipes = async () => {
     try {
       setLoading(true);
@@ -14,7 +15,7 @@ function RecipeList({ onRecipeDeleted }) {
         throw new Error("Failed to fetch recipes");
       }
       const data = await response.json();
-      setRecipes(data);
+      setLocalRecipes(data);
     } catch (error) {
       console.error("Error fetching recipes:", error);
     } finally {
@@ -22,31 +23,38 @@ function RecipeList({ onRecipeDeleted }) {
     }
   };
 
-//for initialize
+  // 初始化加载（仅当没有传递propRecipes时）
   useEffect(() => {
-    fetchRecipes();
-  }, []);
+    if (!propRecipes) {
+      fetchRecipes();
+    } else {
+      setLoading(false); // 如果有传递recipes，则不需要加载
+    }
+  }, [propRecipes]);
 
- 
+  // 当删除菜谱时
   const handleRecipeDeleted = (recipeId) => {
-    setRecipes((currentRecipes) =>
-      currentRecipes.filter((recipe) => recipe._id !== recipeId)
-    );
-
     if (onRecipeDeleted) {
       onRecipeDeleted(recipeId);
+    } else {
+      setLocalRecipes((currentRecipes) =>
+        currentRecipes.filter((recipe) => recipe._id !== recipeId)
+      );
     }
   };
+
+  // 使用props传入的recipes或者自己获取的recipes
+  const recipesToDisplay = propRecipes || localRecipes;
 
   if (loading) return <p>Loading recipes...</p>;
 
   return (
     <div className="recipe-list">
       <h2>Recipe List</h2>
-      {recipes.length === 0 ? (
+      {recipesToDisplay.length === 0 ? (
         <p>No recipes yet. Add your first recipe!</p>
       ) : (
-        recipes.map((recipe) => (
+        recipesToDisplay.map((recipe) => (
           <RecipeCard
             key={recipe._id ? recipe._id.$oid || recipe._id : Math.random()}
             recipeData={recipe}
@@ -59,6 +67,7 @@ function RecipeList({ onRecipeDeleted }) {
 }
 
 RecipeList.propTypes = {
+  recipes: PropTypes.array,
   onRecipeDeleted: PropTypes.func,
 };
 
