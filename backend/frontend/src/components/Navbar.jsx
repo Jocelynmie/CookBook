@@ -23,6 +23,9 @@ function Navbar() {
         >
           <Link to="/shopping-list-page">Shopping List Page</Link>
         </li>
+        <li className={location.pathname === "/suggestions" ? "active" : ""}>
+          <Link to="/suggestions">Suggestions</Link>
+        </li>
       </ul>
     </nav>
   );

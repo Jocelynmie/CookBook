@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 // import RecipeList from "./components/RecipeList";
 import RecipePage from "./pages/RecipePage";
 import "./App.css";
+import Suggestions from "./pages/Suggestions";
 // import Test from "./Test";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/recipes-page" element={<RecipePage />} />
           <Route path="/shopping-list-page" element={<ShoppingListPage />} />
+          <Route path="/suggestions" element={<Suggestions />} />
         </Routes>
       </main>
       <footer className="footer">
