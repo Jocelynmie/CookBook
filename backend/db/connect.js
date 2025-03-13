@@ -9,6 +9,7 @@ const url = process.env.MONGO_URL || "mongodb://localhost:27017";
 let collections = {
   recipes: null,
   mealPlans: null,
+  suggestions: null,
 };
 let client;
 let db;
@@ -24,6 +25,7 @@ export async function connectToDatabase() {
     db = client.db("CookBook");
     collections.recipes = db.collection("recipes");
     collections.mealPlans = db.collection("mealPlans");
+    collections.suggestions = db.collection("suggestions");
 
     return db;
   } catch (error) {

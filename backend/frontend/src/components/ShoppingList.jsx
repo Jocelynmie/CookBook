@@ -14,14 +14,14 @@ const ShoppingList = () => {
     try {
       setLoading(true);
 
-      // 1. 获取当前meal plan
+      // 1. get cur meal plan
       const response = await fetch("/api/mealplan/current");
       if (!response.ok) {
         throw new Error("Failed to fetch meal plan");
       }
       const mealPlan = await response.json();
 
-      // 2. 获取meal plan中的食谱
+      // 2. get recipe
       const recipesResponse = await fetch(
         `/api/mealplan/${mealPlan._id}/recipes`
       );
@@ -31,7 +31,7 @@ const ShoppingList = () => {
       const recipesData = await recipesResponse.json();
       setRecipes(recipesData);
 
-      // 3. 获取购物清单
+      // 3. get shopping list
       const shoppingListResponse = await fetch(
         `/api/mealplan/${mealPlan._id}/shopping-list`
       );
@@ -57,7 +57,6 @@ const ShoppingList = () => {
       <h1 className="page-title">This Week Shopping List</h1>
 
       <div className="content-wrapper">
-        {/* 本周食谱 */}
         <div className="recipe-section">
           <div className="section-card">
             <h2 className="section-title">This Week Recipes</h2>
@@ -80,7 +79,6 @@ const ShoppingList = () => {
           </div>
         </div>
 
-        {/* 购物清单 */}
         <div className="shopping-section">
           <div className="section-card">
             <h2 className="section-title">Shopping List</h2>

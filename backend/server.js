@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectToDatabase } from "./db/connect.js";
 import recipeRouter from "./routes/recipeRouter.js";
 import mealplanRouter from "./routes/mealplanRouter.js";
+import suggestionRouter from "./routes/suggestionRouter.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use("/api", recipeRouter);
 app.use("/api", mealplanRouter);
+app.use("/api", suggestionRouter);
 
 app.get("/", (req, res) => {
   res.send({
